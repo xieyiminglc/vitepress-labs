@@ -1,0 +1,17 @@
+{
+  "name": "vitepress-lab-markdown",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VitePress Markdown 进阶语法 demo",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "markdown-it-mathjax3": "^4.2.2",
+    "typescript": "^5.7.3",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.34"
+  }
+}

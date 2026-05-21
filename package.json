@@ -1,0 +1,13 @@
+{
+  "name": "vitepress-labs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "VitePress 进阶学习 demo 集合（pnpm workspace）",
+  "scripts": {
+    "dev:markdown": "pnpm --filter vitepress-lab-markdown dev",
+    "dev:theme": "pnpm --filter vitepress-lab-theme dev",
+    "dev:data-blog": "pnpm --filter vitepress-lab-data-blog dev",
+    "dev:i18n-routes": "pnpm --filter vitepress-lab-i18n-routes dev",
+    "build": "pnpm -r build"
+  }
+}

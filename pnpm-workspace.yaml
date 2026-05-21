@@ -1,0 +1,6 @@
+packages:
+  - 'packages/*'
+
+# 允许 esbuild 在安装时执行 postinstall 构建脚本
+allowBuilds:
+  esbuild: true
