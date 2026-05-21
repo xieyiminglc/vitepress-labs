@@ -1,0 +1,64 @@
+name: Deploy VitePress Labs to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build all demos
+        run: |
+          BASE=/vitepress-labs/markdown/    pnpm --filter vitepress-lab-markdown build
+          BASE=/vitepress-labs/theme/       pnpm --filter vitepress-lab-theme build
+          BASE=/vitepress-labs/data-blog/   pnpm --filter vitepress-lab-data-blog build
+          BASE=/vitepress-labs/i18n-routes/ pnpm --filter vitepress-lab-i18n-routes build
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp site/index.html _site/index.html
+          cp -r packages/01-markdown/docs/.vitepress/dist     _site/markdown
+          cp -r packages/02-theme/docs/.vitepress/dist        _site/theme
+          cp -r packages/03-data-blog/docs/.vitepress/dist    _site/data-blog
+          cp -r packages/04-i18n-routes/docs/.vitepress/dist  _site/i18n-routes
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

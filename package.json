@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "VitePress 进阶学习 demo 集合（pnpm workspace）",
+  "packageManager": "pnpm@11.1.3",
   "scripts": {
     "dev:markdown": "pnpm --filter vitepress-lab-markdown dev",
     "dev:theme": "pnpm --filter vitepress-lab-theme dev",

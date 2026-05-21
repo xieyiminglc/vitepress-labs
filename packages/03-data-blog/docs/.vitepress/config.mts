@@ -3,6 +3,8 @@ import { defineConfig } from 'vitepress'
 // VitePress 1.6.4 站点配置
 // 本 demo 主题：构建期数据加载（Data Loading）与博客
 export default defineConfig({
+  // GitHub Pages 子路径：本地 dev 用 '/'，CI 构建时由 BASE 环境变量注入
+  base: process.env.BASE || '/',
   // 站点语言，会写入 <html lang="...">
   lang: 'zh-CN',
   title: 'VitePress 数据加载与博客',

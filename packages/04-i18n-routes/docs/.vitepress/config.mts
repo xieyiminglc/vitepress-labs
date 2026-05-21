@@ -9,6 +9,8 @@ import { defineConfig } from 'vitepress'
 // 4. 每个 locale 可以拥有独立的 `themeConfig`（独立的 nav / sidebar）。
 //    nav / sidebar 里的链接必须带上对应 locale 的路径前缀。
 export default defineConfig({
+  // GitHub Pages 子路径：本地 dev 用 '/'，CI 构建时由 BASE 环境变量注入
+  base: process.env.BASE || '/',
   // 一个共享的顶层 title，会被所有 locale 继承（除非某个 locale 自己覆盖）。
   title: 'VitePress i18n & Routes Lab',
 

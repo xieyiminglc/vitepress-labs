@@ -3,6 +3,8 @@ import { defineConfig } from 'vitepress'
 // VitePress 1.6.4 配置文件
 // 主题：Markdown 进阶语法学习 demo
 export default defineConfig({
+  // GitHub Pages 子路径：本地 dev 用 '/'，CI 构建时由 BASE 环境变量注入
+  base: process.env.BASE || '/',
   // 站点语言，影响 <html lang> 以及无障碍读屏
   lang: 'zh-CN',
   title: 'Markdown 进阶',

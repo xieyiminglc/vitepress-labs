@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VitePress Labs · 进阶学习 demo 集合</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f6f8fa;
+    color: #1f2328;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 64px 24px 80px; }
+  header h1 { font-size: 2rem; margin: 0 0 8px; }
+  header p { color: #59636e; margin: 0 0 40px; }
+  .grid {
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+  a.card {
+    display: block; text-decoration: none; color: inherit;
+    background: #fff; border: 1px solid #d1d9e0; border-radius: 12px;
+    padding: 20px 22px;
+    transition: border-color .15s, transform .15s, box-shadow .15s;
+  }
+  a.card:hover {
+    border-color: #0969da; transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
+  }
+  .card .tag { font-size: .75rem; color: #0969da; font-weight: 600; }
+  .card h2 { font-size: 1.15rem; margin: 6px 0; }
+  .card p { margin: 0; color: #59636e; font-size: .92rem; }
+  footer { margin-top: 48px; color: #818b98; font-size: .85rem; }
+  footer a { color: #0969da; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #0d1117; color: #e6edf3; }
+    a.card { background: #161b22; border-color: #30363d; }
+    .card p, header p { color: #9198a1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>VitePress Labs</h1>
+    <p>VitePress 1.6 进阶学习 demo 集合 —— 每个 demo 聚焦一个知识点，均可独立运行。</p>
+  </header>
+  <div class="grid">
+    <a class="card" href="markdown/">
+      <span class="tag">01 · Markdown</span>
+      <h2>Markdown 进阶</h2>
+      <p>代码组、行高亮 / diff、代码片段导入、数学公式、文件包含。</p>
+    </a>
+    <a class="card" href="theme/">
+      <span class="tag">02 · Theme</span>
+      <h2>自定义主题与布局</h2>
+      <p>扩展默认主题、Layout 插槽、完全自定义布局、全局组件、CSS 变量。</p>
+    </a>
+    <a class="card" href="data-blog/">
+      <span class="tag">03 · Data</span>
+      <h2>数据加载与博客</h2>
+      <p>createContentLoader 博客列表与标签、.data 构建期数据加载器。</p>
+    </a>
+    <a class="card" href="i18n-routes/">
+      <span class="tag">04 · i18n</span>
+      <h2>国际化与动态路由</h2>
+      <p>locales 多语言站点、[param].md 动态路由 + paths 加载器。</p>
+    </a>
+  </div>
+  <footer>
+    源码：<a href="https://github.com/xieyiminglc/vitepress-labs">github.com/xieyiminglc/vitepress-labs</a>
+  </footer>
+</div>
+</body>
+</html>

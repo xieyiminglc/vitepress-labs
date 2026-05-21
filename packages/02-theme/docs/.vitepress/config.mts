@@ -4,6 +4,8 @@ import { defineConfig } from 'vitepress'
 // 这里只配置“站点信息 + 导航/侧边栏”，主题的外观与行为由
 // docs/.vitepress/theme/index.ts 决定（自定义主题）。
 export default defineConfig({
+  // GitHub Pages 子路径：本地 dev 用 '/'，CI 构建时由 BASE 环境变量注入
+  base: process.env.BASE || '/',
   // 站点语言：影响 <html lang> 以及默认主题的内置文案方向。
   lang: 'zh-CN',
   title: 'VitePress 自定义主题',
